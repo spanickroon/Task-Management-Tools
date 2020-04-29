@@ -40,6 +40,11 @@ class TCPServer:
         """Waiting for messages from the client."""
         while True:
             connection, address = self.sock.accept()
+            data = connection.recv(const_tcp.BUFFER_SIZE)
+
+            if data.decode('UTF-8') != tmp.CONNECT:
+                continue
+            connection.send(tmp.CONNECT.encode('UTF-8'))
 
             while True:
                 data = connection.recv(const_tcp.BUFFER_SIZE)

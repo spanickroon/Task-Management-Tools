@@ -8,8 +8,12 @@ class DesktopApp:
 
     def start(self):
         """Start messaging server."""
-        app_server = server.TCPServer()
-        app_server.start()
+        try:
+            app_server = server.TCPServer()
+            app_server.start()
+        except OSError:
+            # testing
+            print('oserr')
 
 
 if __name__ == "__main__":
