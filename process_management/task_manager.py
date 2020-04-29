@@ -23,26 +23,22 @@ class Manager:
         for program in os.listdir(standard_programs):
             all_applications.append(program.replace('.desktop', ''))
 
-        return all_applications
+        return ','.join(all_applications)
 
     def manage_application(self, app_name, close=False):
         """Starting or stopping applications and processes."""
-        if close:
-            for process in psutil.process_iter():
-                if app_name.lower().strip() in process.name().lower():
-                    process.kill()
-        else:
-            program = subprocess.Popen(app_name)
+        try:
+            if close:
+                for process in psutil.process_iter():
+                    if app_name.lower().strip() in process.name().lower():
+                        process.kill()
+            else:
+                program = subprocess.Popen(app_name)
+        except FileNotFoundError:
+            pass
 
     def sending_messages(self, message):
         """Sending messages that are called as new windows."""
         root = tk.Tk()
         root.withdraw()
         messagebox.showwarning('New message', message.strip())
-
-
-if __name__ == "__main__":
-    """Testing."""
-    test_manager = Manager()
-    test_manager.manage_application('gnome-terminal')
-    test_manager.sending_messages('hi')

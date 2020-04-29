@@ -4,6 +4,7 @@ import socket
 import threading
 
 import const_tcp
+import message_templates
 
 
 class TCPClient:
@@ -13,6 +14,7 @@ class TCPClient:
         """Connection to tcp server."""
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((const_tcp.TCP_IP, const_tcp.TCP_PORT))
+        self.sock.send
 
     def sending_messages(self):
         """Sending messages to the server."""
