@@ -1,4 +1,4 @@
-""""""
+"""Mobile app module."""
 
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
@@ -12,12 +12,12 @@ Window.title = 'TaskManager'
 
 
 class Container(FloatLayout):
-    """"""
+    """GUI class."""
 
     mobile_client = None
 
     def update(self):
-        """"""
+        """Updating processes on a remote device."""
         try:
             self.mobile_client = client.TCPClient()
             self.mobile_client.receiving_messages_from_server()
@@ -25,12 +25,18 @@ class Container(FloatLayout):
             self.send_message_button.disabled = False
             self.open_service_button.disabled = False
             self.close_service_button.disabled = False
+
+            processes = self.mobile_client.update_process()
+            self.spinner.values.clear()
+            self.spinner.values.extend(processes)
+            self.spinner.text = self.spinner.values[0]
+
         except ConnectionRefusedError:
             self.spinner.text = 'No connection'
             self.spinner.values.clear()
 
     def send_message(self):
-        """"""
+        """Sending messages to the device."""
         try:
             self.mobile_client.send_message(tmp.SEND_MSG+self.text_input.text)
             self.text_input.text = ""
@@ -44,10 +50,10 @@ class Container(FloatLayout):
 
 
 class TaskManagerApp(App):
-    """"""
+    """Application class"""
 
     def build(self):
-        """"""
+        """Method that builds the application"""
         return Container()
 
 

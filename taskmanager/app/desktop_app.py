@@ -1,6 +1,7 @@
 """Desktop app module."""
 
 from taskmanager.tcp_protocol import server
+from taskmanager.tcp_protocol import const_tcp as cnst
 
 
 class DesktopApp:
@@ -12,8 +13,7 @@ class DesktopApp:
             app_server = server.TCPServer()
             app_server.start()
         except OSError:
-            # testing
-            print('oserr')
+            print(f'The port {cnst.TCP_PORT} is busy waiting a bit')
 
 
 if __name__ == "__main__":
