@@ -42,15 +42,7 @@ class TCPServer:
             connection, address = self.sock.accept()
             data = connection.recv(const_tcp.BUFFER_SIZE)
 
-            if data.decode('UTF-8') != tmp.CONNECT:
-                continue
-            connection.send(tmp.CONNECT.encode('UTF-8'))
-
-            data = connection.recv(const_tcp.BUFFER_SIZE)
-
             self.message_processing(connection, data.decode('UTF-8'))
-
-            print(f'\nSender: {address}\nMessage: {data.decode("UTF-8")}')
 
     def start(self):
         """Start a separate thread for server operation."""

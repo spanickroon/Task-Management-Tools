@@ -21,7 +21,9 @@ class Manager:
         all_applications.extend(snap_packages)
 
         for program in os.listdir(standard_programs):
-            all_applications.append(program.replace('.desktop', ''))
+            all_applications.append(
+                program.replace(
+                    '.desktop', '').replace('org.gnome.', 'gnome-').lower())
 
         return ','.join(all_applications)
 

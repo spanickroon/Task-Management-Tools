@@ -46,8 +46,10 @@
             id: open_service_button
             disabled: True
             text: 'Open service'
+            on_release: root.open_service()
 
         Button:
             id: close_service_button
             disabled: True
             text: 'Close service'
+            on_release: root.close_service()
