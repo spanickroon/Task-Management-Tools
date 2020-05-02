@@ -1,0 +1,57 @@
+
+<Container>:
+    update_services_button: update_services_button
+    send_message_button: send_message_button
+    open_service_button: open_service_button
+    close_service_button: close_service_button
+
+    
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 10
+        padding: 10
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: 0.5, 0.1
+    
+        Spinner:
+            sync_height: True
+            text: 'Please update'
+            values: [str(i) for i in range(100)]
+
+    BoxLayout:
+        padding: 10
+        orientation: 'vertical'
+        spacing: 10
+        pos_hint: {'center_x': 0.5}
+        size_hint: 0.5, 0.45
+
+        TextInput:
+            id: text_input
+            multiline: False
+
+        Button:
+            id: update_services_button
+            text: 'Update services'
+        
+        Button:
+            id: send_message_button
+            text: 'Send message'
+
+        Button:
+            id: open_service_button
+            text: 'Open service'
+
+        Button:
+            id: close_service_button
+            text: 'Close service'
+
+   
+
+          
+
+    
+   
+ 
+
+
+
