@@ -1,6 +1,6 @@
 """Desktop app module."""
 
-from tcp_protocol import server
+from taskmanager.tcp_protocol import server
 
 
 class DesktopApp:

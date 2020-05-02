@@ -3,9 +3,9 @@
 import socket
 import threading
 
-from . import const_tcp
-from . import message_templates as tmp
-from process_management import task_manager as tm
+from taskmanager.tcp_protocol import const_tcp
+from taskmanager.tcp_protocol import message_templates as tmp
+from taskmanager.process_management import task_manager as tm
 
 
 class TCPServer:
@@ -53,7 +53,7 @@ class TCPServer:
 
                 self.message_processing(connection, data.decode('UTF-8'))
 
-                print(data.decode('UTF-8'))
+                print(f'\nSender: {address}\nMessage: {data.decode("UTF-8")}')
 
     def start(self):
         """Start a separate thread for server operation."""
