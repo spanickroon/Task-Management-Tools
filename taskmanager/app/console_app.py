@@ -1,4 +1,4 @@
-"""Desktop app module."""
+"""Console app module."""
 
 from taskmanager.tcp_protocol import server
 from taskmanager.tcp_protocol import const_tcp as cnst

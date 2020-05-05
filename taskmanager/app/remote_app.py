@@ -1,4 +1,4 @@
-"""Mobile app module."""
+"""Remote app module."""
 
 from kivy.app import App
 from kivy.uix.floatlayout import FloatLayout
