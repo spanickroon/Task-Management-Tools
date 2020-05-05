@@ -37,5 +37,7 @@ Run the taskmanager/app/remote_app.py file on the device from which you will con
 ### Errors
 
 ```
-If there are errors at startup, install the pygame ( pip3 install pygame )
+If there are errors at startup, install the pygame, xclip:
+pip3 install pygame 
+sudo apt-get install xclip xsel
 ```
