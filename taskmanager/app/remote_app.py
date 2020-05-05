@@ -74,5 +74,4 @@ class TaskManagerApp(App):
         return Container()
 
 
-def main():
-    TaskManagerApp().run()
+TaskManagerApp().run()
